@@ -22,7 +22,7 @@ export default {
   margin-top: 60px;
 }
 .button {
-      background-color: #1c82ff;
+    background-color: #1c82ff;
     border: none;
     color: #ffffff;
     font-family: "Sora";
@@ -33,16 +33,22 @@ export default {
     margin: 1rem 1rem 1rem auto;
     width: 40%;
 }
+.button:active {
+  opacity: 0.9;
+}
 .disconnect__button {
-     background-color: red;
+    background-color: red;
     border: none;
     color: #ffffff;
     font-family: "Sora";
     border-radius: 3rem;
-    padding: 1rem 1.3rem;
+    padding: 2rem 3rem;
     font-weight: 600;
-    font-size: 1rem;
-    margin: 8rem 1rem 1rem auto;
-    width: 20%;
+    font-size: 2rem;
+    margin: 1rem 1rem 1rem auto;
+    width: 40%;
+}
+.disconnect__button:active {
+  opacity: 0.9;
 }
 </style>

@@ -1,15 +1,15 @@
-import { providers } from "ethers";
+import { ethers } from "ethers";
 import connect from "./index";
 import { provider } from "../../walletConnect/provider";
 
 const connectWalletConnect = async () => {
   try {
     const { state } = connect();
-    //  Enable session (triggers QR Code modal)
-    await provider.enable();
-    const web3Provider = new providers.Web3Provider(provider);
+    await provider.enable()
+    const web3Provider = new ethers.Web3Provider(provider);
     const signer = await web3Provider.getSigner();
     const address = await signer.getAddress();
+    console.log("connect " + signer +" addr: " + address);
     state.status = true;
     state.address = address;
     state.chainId = await provider.request({ method: "eth_chainId" });

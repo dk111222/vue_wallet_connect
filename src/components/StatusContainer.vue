@@ -1,14 +1,16 @@
 <template>
   <div class="hello">
-    <h1>Welcome to Your Vue.js Dapp</h1>
+    <h1>Vue.js Dapp</h1>
     <div v-if="state.status">
-       <button  @click="connectUserWallet" class="button">Connected</button>
        <h3>Address: {{state.address}}</h3>
        <h3>ChainId: {{state.chainId}}</h3>
-       <button  @click="disconnectUser" class="disconnect__button">Disconnect</button>
+    </div>
+    <div v-else>
+       <h3>没有连接钱包</h3>
     </div>
 
-    <button v-else @click="connectUserWallet" class="button"> Connect Wallet</button>
+    <button @click="connectUserWallet" class="button">Connect Wallet</button>
+    <button @click="disconnectUser" class="disconnect__button">Disconnect</button>
   </div>
 </template>
 
@@ -20,6 +22,7 @@
     setup: () => {
       const { connectWalletConnect, disconnectWallet, state } = connect();
       const connectUserWallet = async () => {
+        console.log("-> connectWalletConnect")
         await connectWalletConnect();
       };
 
